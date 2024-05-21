@@ -17,12 +17,14 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>User login system</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
   <link rel="stylesheet" href="./css/main.css">
   <link rel="shortcut icon" href="./img/favicon-16x16.png" type="image/x-icon">
 </head>
 
 <body>
+  <?php include 'navbar.php'; ?>
   <div class="container">
     <div class="alert alert-success my-5">
       Welcome ! You are now signed in to your account.
@@ -32,7 +34,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
       <div class="col-lg-5 text-center">
         <img src="./img/blank-avatar.jpg" class="img-fluid rounded" alt="User avatar" width="180">
         <h4 class="my-4">Hello, <?= htmlspecialchars($_SESSION["username"]); ?></h4>
-        <a href="./logout.php" class="btn btn-primary">Log Out</a>
+        <a href="./logout.php" class="btn btn-primary">Add text</a>
       </div>
     </div>
   </div>
