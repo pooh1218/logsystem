@@ -34,8 +34,46 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
       <div class="col-lg-5 text-center">
         <img src="./img/blank-avatar.jpg" class="img-fluid rounded" alt="User avatar" width="180">
         <h4 class="my-4">Hello, <?= htmlspecialchars($_SESSION["username"]); ?></h4>
-        <a href="./logout.php" class="btn btn-primary">Add text</a>
+        <a href="./addblog.php" class="btn btn-primary">Add text</a>
       </div>
+
+      <div class="row">
+        <?php
+        // Step 1: Connect to the MySQL database
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $dbname = "registered";
+
+        $conn = new mysqli($servername, $username, $password, $dbname);
+        if ($conn->connect_error) {
+          die("Connection failed: " . $conn->connect_error);
+        }
+
+        // Step 2: Retrieve data from the database
+        $sql = "SELECT blogtitle, blogtext, user, time FROM blog";
+        $result = $conn->query($sql);
+
+        // Step 3: Loop through the data and display it
+        if ($result->num_rows > 0) {
+          while ($row = $result->fetch_assoc()) {
+            echo "<div class='col-md-6'>";
+            echo "<div class='blog-post'>";
+            echo "<h2 class='blog-title'><strong>Title:</>" . $row["blogtitle"] . "</h2>";
+            echo "<p class='blog-content'><strong>Text:</strong> " . $row["blogtext"] . "</p>";
+            echo "<p class='blog-content'><strong>User:</strong> " . $row["user"] . "</p>";
+            echo "<p class='blog-content'><strong>Time:</strong> " . $row["time"] . "</p>";
+            echo "</div>";
+            echo "</div>";
+          }
+        } else {
+          echo "<p>No data found</p>";
+        }
+        $conn->close();
+        ?>
+      </div>
+
+
     </div>
   </div>
 </body>

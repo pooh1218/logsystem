@@ -1,5 +1,4 @@
 <?php
-// session_start();
 require_once "config.php";
 
 ?>
@@ -24,7 +23,7 @@ require_once "config.php";
               Admin Panel
             </a>
             <div class="dropdown-menu">
-              <a class="dropdown-item" href="blog/addblog.php">Add Text</a>
+              <a class="dropdown-item" href="./addblog.php">Add Text</a>
             </div>
         </div>
           <?php
