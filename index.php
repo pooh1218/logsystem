@@ -32,12 +32,12 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
     <!-- User profile -->
     <div class="row justify-content-center">
       <div class="col-lg-5 text-center">
-        <img src="./img/blank-avatar.jpg" class="img-fluid rounded" alt="User avatar" width="180">
+        <img src="./img/user.gif" class="img-fluid rounded" alt="User avatar" width="180">
         <h4 class="my-4">Hello, <?= htmlspecialchars($_SESSION["username"]); ?></h4>
         <a href="./addblog.php" class="btn btn-primary">Add text</a>
       </div>
 
-      <div class="row">
+      <div>
         <?php
         // Step 1: Connect to the MySQL database
         $servername = "localhost";
